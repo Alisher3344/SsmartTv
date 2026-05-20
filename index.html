@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTV UZ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Fullscreen video player -->
+        <video id="video" autoplay playsinline muted></video>
+
+        <!-- Top info bar (shows current channel) -->
+        <div class="top-info" id="top-info">
+            <div class="live-tag"><span class="live-dot"></span>LIVE</div>
+            <div class="channel-num" id="channel-num">--</div>
+            <div class="channel-name-top" id="channel-name-top">SmartTV UZ</div>
+            <div class="clock" id="clock">--:--</div>
+        </div>
+
+        <!-- Splash overlay (shown when nothing playing) -->
+        <div class="splash" id="splash">
+            <div class="splash-content">
+                <div class="splash-icon">📺</div>
+                <h1>Smart<span class="accent">TV</span></h1>
+                <p>Kanal tanlash uchun <kbd>OK</kbd> tugmasini bosing</p>
+                <div class="hint-keys">
+                    <div><kbd>↑</kbd><kbd>↓</kbd> Kanal o'zgartirish</div>
+                    <div><kbd>←</kbd><kbd>→</kbd> Kategoriya</div>
+                    <div><kbd>0-9</kbd> Tezkor kanal</div>
+                    <div><kbd>OK</kbd> Menyu</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Channel guide overlay (toggleable) -->
+        <div class="guide" id="guide">
+            <div class="guide-header">
+                <h2>Telekanallar</h2>
+                <div class="category-tabs" id="category-tabs">
+                    <button class="cat-tab active" data-cat="all">Hammasi</button>
+                    <button class="cat-tab" data-cat="news">Yangiliklar</button>
+                    <button class="cat-tab" data-cat="entertainment">Ko'ngilochar</button>
+                    <button class="cat-tab" data-cat="kids">Bolalar</button>
+                    <button class="cat-tab" data-cat="music">Musiqa</button>
+                </div>
+            </div>
+            <div class="guide-list" id="guide-list"></div>
+            <div class="guide-footer">
+                <span><kbd>↑↓</kbd> Tanlash</span>
+                <span><kbd>OK</kbd> Tomosha qilish</span>
+                <span><kbd>←→</kbd> Kategoriya</span>
+                <span><kbd>BACK</kbd> Yopish</span>
+            </div>
+        </div>
+
+        <!-- Bottom mini-banner (shown briefly when changing channels) -->
+        <div class="zap-banner" id="zap-banner">
+            <div class="zap-num" id="zap-num">--</div>
+            <div class="zap-info">
+                <div class="zap-name" id="zap-name"></div>
+                <div class="zap-cat" id="zap-cat"></div>
+            </div>
+        </div>
+
+        <!-- Loading spinner -->
+        <div class="spinner" id="spinner"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="channels.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
