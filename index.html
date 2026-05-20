@@ -3,41 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartTV UZ</title>
+    <title>Ssmart TV — Premium UZ kanallari</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app">
-        <!-- Fullscreen video player -->
-        <video id="video" autoplay playsinline muted></video>
-
-        <!-- Top info bar (shows current channel) -->
-        <div class="top-info" id="top-info">
-            <div class="live-tag"><span class="live-dot"></span>LIVE</div>
-            <div class="channel-num" id="channel-num">--</div>
-            <div class="channel-name-top" id="channel-name-top">SmartTV UZ</div>
-            <div class="clock" id="clock">--:--</div>
+        <!-- Animated aurora background -->
+        <div class="aurora">
+            <div class="aurora-blob blob-1"></div>
+            <div class="aurora-blob blob-2"></div>
+            <div class="aurora-blob blob-3"></div>
         </div>
 
-        <!-- Splash overlay (shown when nothing playing) -->
+        <!-- Fullscreen video -->
+        <video id="video" autoplay playsinline muted></video>
+        <div class="vignette"></div>
+
+        <!-- Top info bar -->
+        <div class="top-bar" id="top-info">
+            <div class="brand-mini">
+                <div class="brand-mark">
+                    <span class="mark-glyph">▶</span>
+                </div>
+                <div class="brand-text">Ssmart<span class="grad">TV</span></div>
+            </div>
+            <div class="now-chip">
+                <div class="live-tag"><span class="live-dot"></span>LIVE</div>
+                <div class="now-num" id="channel-num">--</div>
+                <div class="now-name" id="channel-name-top">Kanal tanlanmagan</div>
+            </div>
+            <div class="top-right">
+                <div class="clock" id="clock">--:--</div>
+                <div class="date" id="date"></div>
+            </div>
+        </div>
+
+        <!-- Splash / Welcome screen -->
         <div class="splash" id="splash">
+            <div class="splash-bg">
+                <div class="splash-ring ring-1"></div>
+                <div class="splash-ring ring-2"></div>
+                <div class="splash-ring ring-3"></div>
+            </div>
             <div class="splash-content">
-                <div class="splash-icon">📺</div>
-                <h1>Smart<span class="accent">TV</span></h1>
-                <p>Kanal tanlash uchun <kbd>OK</kbd> tugmasini bosing</p>
-                <div class="hint-keys">
-                    <div><kbd>↑</kbd><kbd>↓</kbd> Kanal o'zgartirish</div>
-                    <div><kbd>←</kbd><kbd>→</kbd> Kategoriya</div>
-                    <div><kbd>0-9</kbd> Tezkor kanal</div>
-                    <div><kbd>OK</kbd> Menyu</div>
+                <div class="splash-badge">PREMIUM ✦ UZ</div>
+                <div class="splash-logo">
+                    <div class="logo-orb">
+                        <span class="orb-glyph">▶</span>
+                        <div class="orb-shine"></div>
+                    </div>
+                    <h1 class="splash-title">Ssmart<span class="grad">TV</span></h1>
+                </div>
+                <p class="splash-tagline">O'zbekistonning eng yaxshi telekanallari — bir joyda, sof efirda</p>
+
+                <button class="cta-btn" id="cta-start">
+                    <span class="cta-icon">▶</span>
+                    <span>Tomosha boshlash</span>
+                    <kbd class="cta-key">OK</kbd>
+                </button>
+
+                <div class="hint-grid">
+                    <div class="hint-card">
+                        <kbd>↑↓</kbd>
+                        <span>Kanal almashtirish</span>
+                    </div>
+                    <div class="hint-card">
+                        <kbd>OK</kbd>
+                        <span>Kanallar menyusi</span>
+                    </div>
+                    <div class="hint-card">
+                        <kbd>0-9</kbd>
+                        <span>Tezkor raqam</span>
+                    </div>
+                    <div class="hint-card">
+                        <kbd>BACK</kbd>
+                        <span>Orqaga qaytish</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Channel guide overlay (toggleable) -->
+        <!-- Channel guide -->
         <div class="guide" id="guide">
+            <div class="guide-glow"></div>
             <div class="guide-header">
-                <h2>Telekanallar</h2>
+                <div class="guide-title-row">
+                    <h2>Telekanallar</h2>
+                    <span class="guide-count" id="guide-count">0</span>
+                </div>
                 <div class="category-tabs" id="category-tabs">
                     <button class="cat-tab active" data-cat="all">Hammasi</button>
                     <button class="cat-tab" data-cat="news">Yangiliklar</button>
@@ -48,24 +104,32 @@
             </div>
             <div class="guide-list" id="guide-list"></div>
             <div class="guide-footer">
-                <span><kbd>↑↓</kbd> Tanlash</span>
-                <span><kbd>OK</kbd> Tomosha qilish</span>
-                <span><kbd>←→</kbd> Kategoriya</span>
-                <span><kbd>BACK</kbd> Yopish</span>
+                <div class="foot-item"><kbd>↑↓</kbd>Tanlash</div>
+                <div class="foot-item"><kbd>OK</kbd>Tomosha</div>
+                <div class="foot-item"><kbd>←→</kbd>Kategoriya</div>
+                <div class="foot-item"><kbd>BACK</kbd>Yopish</div>
             </div>
         </div>
 
-        <!-- Bottom mini-banner (shown briefly when changing channels) -->
-        <div class="zap-banner" id="zap-banner">
+        <!-- Zap banner -->
+        <div class="zap" id="zap-banner">
+            <div class="zap-glow"></div>
             <div class="zap-num" id="zap-num">--</div>
             <div class="zap-info">
                 <div class="zap-name" id="zap-name"></div>
-                <div class="zap-cat" id="zap-cat"></div>
+                <div class="zap-meta">
+                    <span class="zap-live"><span class="live-dot"></span>EFIRDA</span>
+                    <span class="zap-cat" id="zap-cat"></span>
+                </div>
             </div>
         </div>
 
-        <!-- Loading spinner -->
-        <div class="spinner" id="spinner"></div>
+        <!-- Spinner -->
+        <div class="spinner" id="spinner">
+            <div class="sp-ring"></div>
+            <div class="sp-ring"></div>
+            <div class="sp-ring"></div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
