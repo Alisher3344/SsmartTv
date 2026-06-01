@@ -70,3 +70,4 @@ Open <http://localhost:5173>.
 | GET  | `/api/stream/{slug}` | proxied HLS manifest |
 | GET  | `/api/segment?url=...` | proxied HLS segment |
 # SsmartTV-
+# SsmartTV-
