@@ -69,3 +69,4 @@ Open <http://localhost:5173>.
 | GET  | `/api/movies` | `?kind=hero\|featured\|premiere\|cinema\|movie\|series` |
 | GET  | `/api/stream/{slug}` | proxied HLS manifest |
 | GET  | `/api/segment?url=...` | proxied HLS segment |
+# SsmartTV-
